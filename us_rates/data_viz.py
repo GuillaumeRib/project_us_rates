@@ -35,6 +35,16 @@ def line_yield_curve(df):
                   autosize=True,
                   #width=1200,
                   height=500,
+                  annotations=[
+                            dict(
+                                text="Source: FRED - Federal Reserve Economic Data",
+                                x=0,
+                                y=-0.15,
+                                xref="paper",
+                                yref="paper",
+                                showarrow=False
+                            )
+                        ]
                   )
     fig.layout.updatemenus[0].buttons[0].args[1]["frame"]["duration"] = 100
 
@@ -63,12 +73,12 @@ def surface_3d(df):
                                     )
                         ]
                 )
-
+    fig.update_xaxes(title=None)
     fig.update_layout(title='Historical Yield Curve Evolution',
                         title_font=dict(size = 20),
                         autosize=True,
                         #width=1600,
-                        height=600,
+                        height=500,
                         hovermode='closest',
                         scene = {"aspectratio": {"x": 1, "y": 2.2, "z": 1},
                                 'camera': {'eye':{'x': 2, 'y':0.4, 'z': 0.8}},
@@ -76,7 +86,17 @@ def surface_3d(df):
                               'yaxis_title':'Date',
                               'zaxis_title':'Yield in %'
                                 },
-                        margin=dict(l=0, r=0, b=60, t=40),
+                        margin=dict(t=40),
+                        annotations=[
+                            dict(
+                                text="Source: FRED - Federal Reserve Economic Data",
+                                x=0,
+                                y=-0.15,
+                                xref="paper",
+                                yref="paper",
+                                showarrow=False
+                            )
+                        ]
 
                     )
 
@@ -103,6 +123,46 @@ def line_spread(df):
                   autosize=True,
                   #width=1200,
                   height=500,
+                  annotations=[
+                            dict(
+                                text="Source: FRED - Federal Reserve Economic Data",
+                                x=0,
+                                y=-0.15,
+                                xref="paper",
+                                yref="paper",
+                                showarrow=False
+                            )
+                        ]
 
                  )
+    return fig
+
+
+def heatmap(df):
+    '''
+    imshow of yields per month per term in heatmap format
+    '''
+    fig = px.imshow(df.T,
+                    color_continuous_scale='icefire')
+
+    fig.update_xaxes(title=None)
+
+    fig.update_layout(title='Yield Curve Heatmap',
+                  title_font=dict(size = 20),
+                  autosize=True,
+                  #width=1200,
+                  height=500,
+                  annotations=[
+                            dict(
+                                text="Source: FRED - Federal Reserve Economic Data",
+                                x=0,
+                                y=-0.15,
+                                xref="paper",
+                                yref="paper",
+                                showarrow=False
+                            )
+                        ]
+
+                 )
+
     return fig
