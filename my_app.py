@@ -46,9 +46,9 @@ load_figure_template("yeti")
 ####################################
 
 title = html.H1(children="US Treasury Yield Curve",
-                className=('text-center mb-4'))
-as_of = html.Em(children=f'last update: {df.index[-1].year}-{df.index[-1].month}',
-                className=('text-center mb-2'))
+                className=('text-center'))
+as_of = html.Em(children=f'as at: {df.index[-1].year}-{df.index[-1].month}',
+                className=('text-center'))
 
 
 
@@ -59,22 +59,29 @@ app.layout = dbc.Container([
         dbc.Col(title,width=12,class_name=('mt-4'))
     ]),
     dbc.Row([
-        dbc.Col(as_of,width=12,class_name=('text-center mt-0'))
+        dbc.Col(as_of,width=12,class_name=('text-center mt-0 mb-4'))
     ]),
 
     dbc.Row([
         dbc.Col(
             dcc.Graph(figure=data_viz.surface_3d(df)),
-            xs=12,sm=12,md=12,lg=12,xl=12,xxl=12,class_name=('mt-4')),
+            xs=12,sm=12,md=12,lg=12,xl=12,xxl=6,class_name=('mt-10')),
+
+        dbc.Col(
+            dcc.Graph(figure=data_viz.heatmap(df)),
+            xs=12,sm=12,md=12,lg=12,xl=12,xxl=6)
+
+
     ]),
+
 
     dbc.Row([
         dbc.Col(
             dcc.Graph(figure=data_viz.line_yield_curve(df)),
-            xs=12,sm=12,md=12,lg=12,xl=12,xxl=6,class_name=('mt-4')),
+            xs=12,sm=12,md=12,lg=12,xl=12,xxl=6),
         dbc.Col(
             dcc.Graph(figure=data_viz.line_spread(df)),
-            xs=12,sm=12,md=12,lg=12,xl=12,xxl=6,class_name=('mt-4'))
+            xs=12,sm=12,md=12,lg=12,xl=12,xxl=6)
     ]),
 
 
