@@ -30,14 +30,14 @@ def line_yield_curve(df):
                                 size=14,
         )
     )
-    fig.update_layout(title='Yield Curve Replay',
+    fig.update_layout(title='Yield Curve Monthly Replay',
                   title_font=dict(size = 20),
                   autosize=True,
                   #width=1200,
                   height=500,
                   annotations=[
                             dict(
-                                text="Source: FRED - Federal Reserve Economic Data",
+                                text="Data Source: FRED - Federal Reserve Economic Data",
                                 x=0,
                                 y=-0.15,
                                 xref="paper",
@@ -74,7 +74,7 @@ def surface_3d(df):
                         ]
                 )
     fig.update_xaxes(title=None)
-    fig.update_layout(title='Historical Yield Curve Evolution',
+    fig.update_layout(title='Yield Curve Historical Evolution',
                         title_font=dict(size = 20),
                         autosize=True,
                         #width=1600,
@@ -82,14 +82,14 @@ def surface_3d(df):
                         hovermode='closest',
                         scene = {"aspectratio": {"x": 1, "y": 2.2, "z": 1},
                                 'camera': {'eye':{'x': 2, 'y':0.4, 'z': 0.8}},
-                                'xaxis_title':'Term',
+                                'xaxis_title':'Maturity',
                               'yaxis_title':'Date',
                               'zaxis_title':'Yield in %'
                                 },
                         margin=dict(t=40),
                         annotations=[
                             dict(
-                                text="Source: FRED - Federal Reserve Economic Data",
+                                text="Data Source: FRED - Federal Reserve Economic Data",
                                 x=0,
                                 y=-0.15,
                                 xref="paper",
@@ -125,7 +125,7 @@ def line_spread(df):
                   height=500,
                   annotations=[
                             dict(
-                                text="Source: FRED - Federal Reserve Economic Data",
+                                text="Data Source: FRED - Federal Reserve Economic Data",
                                 x=0,
                                 y=-0.15,
                                 xref="paper",
@@ -154,7 +154,7 @@ def heatmap(df):
                   height=500,
                   annotations=[
                             dict(
-                                text="Source: FRED - Federal Reserve Economic Data",
+                                text="Data Source: FRED - Federal Reserve Economic Data",
                                 x=0,
                                 y=-0.15,
                                 xref="paper",
